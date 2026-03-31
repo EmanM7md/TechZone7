@@ -1,5 +1,5 @@
-import React, { use, useEffect } from 'react'
-import { useState } from 'react'
+/* eslint-disable react-refresh/only-export-components */
+import React, { useEffect } from 'react'
 export const CartContext = React.createContext();
 export default function CartProvider({children}) {
 

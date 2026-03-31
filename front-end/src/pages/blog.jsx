@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { SlLike , SlDislike} from "react-icons/sl";
 import "./blog.css";
 import Loading from "../components/loading";

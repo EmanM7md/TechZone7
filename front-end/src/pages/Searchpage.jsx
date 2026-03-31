@@ -16,7 +16,7 @@ export default function Searchpage() {
         const res = await fetch(
           `https://dummyjson.com/products/search?q=${query}`,
         );
-        if (!res.ok) throw new Error(setError("Product Not Found"));
+        if (!res.ok) throw new Error("Product Not Found");
         const data = await res.json();
         setResult(data.products || []);
       } catch (err) {

@@ -12,23 +12,11 @@ import toast from "react-hot-toast";
 
 
 export default function Products({ product }) {
-  let { addToCart, cartItems , addToFavorite, favorites, removefavorite} = useContext(CartContext);
+  let { addToCart, cartItems, favorites } = useContext(CartContext);
   let isInCart = cartItems.some((item) => item.id === product.id);
   let isfavorite = favorites.some((fav) => fav.id === product.id);
 
-  let handelFavorite = () => {
-  if(isfavorite){
-    removefavorite(product.id);
-    toast.error(`removed from favorites ${product.title}`,{ duration:3500});
-
-  } 
-    
-  else{
-    addToFavorite(product);
-    toast.success(`added to favorites ${product.title}`,{ duration:3500});
-    playSound();
-  }
-  }
+  // removed unused handelFavorite
 const playSound = () => {
   const ctx = new AudioContext();
 

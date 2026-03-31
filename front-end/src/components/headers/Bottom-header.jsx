@@ -31,6 +31,7 @@ export default function Bottomheader() {
   ];
   let location= useLocation();
   let [isactive, setIsactive] =React.useState(false);
+/* eslint-disable react-hooks/set-state-in-effect */
 useEffect(() => {
 
     setIsactive(false);
