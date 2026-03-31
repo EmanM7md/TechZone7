@@ -1,12 +1,6 @@
--- Create the database
-CREATE DATABASE IF NOT EXISTS techzone_db;
-
--- Use the database
-USE techzone_db;
-
 -- Create users table
 CREATE TABLE IF NOT EXISTS users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
@@ -15,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Create contacts table
 CREATE TABLE IF NOT EXISTS contacts (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   message TEXT NOT NULL,

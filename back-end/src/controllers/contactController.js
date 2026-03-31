@@ -18,16 +18,17 @@ const sendMessage = async (req, res) => {
     const trimmedEmail = email.trim().toLowerCase();
 
     // Insert into contacts table
-    const [result] = await db.execute(
-      'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)',
+    const { rows } = await db.query(
+      'INSERT INTO contacts (name, email, message) VALUES ($1, $2, $3) RETURNING id',
       [trimmedName, trimmedEmail, message.trim()]
     );
+    const insertId = rows[0].id;
 
     // Return inserted data
     res.status(201).json({
       success: true,
       data: {
-        id: result.insertId,
+        id: insertId,
         name: trimmedName,
         email: trimmedEmail,
         message: message.trim(),

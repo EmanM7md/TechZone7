@@ -20,7 +20,7 @@ const signup = async (req, res) => {
     const trimmedEmail = email.trim().toLowerCase();
 
     // Check if email already exists
-    const [existingUsers] = await db.execute('SELECT * FROM users WHERE email = ?', [trimmedEmail]);
+    const { rows: existingUsers } = await db.query('SELECT * FROM users WHERE email = $1', [trimmedEmail]);
     if (existingUsers.length > 0) {
       return res.status(409).json({
         success: false,
@@ -32,14 +32,15 @@ const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Insert user into database
-    const [result] = await db.execute(
-      'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+    const { rows } = await db.query(
+      'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id',
       [trimmedName, trimmedEmail, hashedPassword]
     );
+    const insertId = rows[0].id;
 
     // Generate JWT token (expires in 7 days)
     const token = jwt.sign(
-      { id: result.insertId },
+      { id: insertId },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
@@ -48,7 +49,7 @@ const signup = async (req, res) => {
     res.status(201).json({
       success: true,
       data: {
-        id: result.insertId,
+        id: insertId,
         name: trimmedName,
         email: trimmedEmail,
         token,
@@ -80,7 +81,7 @@ const login = async (req, res) => {
     const trimmedEmail = email.trim().toLowerCase();
 
     // Find user by email
-    const [users] = await db.execute('SELECT * FROM users WHERE email = ?', [trimmedEmail]);
+    const { rows: users } = await db.query('SELECT * FROM users WHERE email = $1', [trimmedEmail]);
     if (users.length === 0) {
       return res.status(401).json({
         success: false,
