@@ -1,0 +1,47 @@
+.favoritePage{
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: #ddd;
+    min-height: 80vh;
+    
+}
+.favoritePage h1{
+    text-align: center;
+    font-style: italic;
+    padding: 8px 0 ;
+    color: var(--main_color);
+    border-bottom: 2px solid #fff;
+    margin-bottom: 8px ;
+}
+.favoritePage h2{
+    text-align: center;
+    font-style: italic;
+    padding: 8px 0 ;
+    color: var(--main_color);
+    text-transform: capitalize;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 8px ;
+}
+
+.big-container{
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+gap: 16px;
+margin: auto;
+
+
+}
+@media(max-width:768px){
+    .big-container{
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+        width: 98%;
+        margin: auto;
+    }
+    .favoritePage h1{
+        font-size: 24px;
+    }
+    .favoritePage h2{
+        font-size: 24px;
+    }
+}

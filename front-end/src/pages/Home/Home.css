@@ -1,0 +1,91 @@
+
+
+.hero{
+    position: relative;
+    margin-bottom: 60px;
+    
+}
+.hero  .swiper-slide .content{
+position: absolute;
+top: 50%;
+left: 10%;
+transform: translateY(-50%);
+
+
+ 
+}
+.swiper-slide .content h4{
+    text-transform: capitalize;
+    font-size: 1.5rem; ;
+    color: var(--black_color);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+.swiper-slide .content h3{
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    color: var(--main_color);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-style: italic;
+    line-height: 1.1;
+}
+.swiper-slide .content p{
+    text-transform: capitalize;
+    font-size: 1rem;
+    color: var(--black_color);
+    font-weight: 500;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.content .btn a{
+    color: white;
+}
+@media(max-width:768px){
+    .hero{
+        
+        margin: auto;
+        width: 100%;
+    }
+    .hero .container {
+        width: 98%;
+    
+        
+    }
+    .hero .swiper-slide .content{
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        
+    }
+    .hero .content h4{
+        margin-top: 20px ;
+        font-size: 1rem;
+        font-weight: normal;
+    }
+    .hero .content h3{
+        font-size: 0.5rem;
+        font-weight: normal;
+        margin-bottom: 4px;
+    }
+    .hero .content p{
+        font-size: .5rem;
+        font-weight: normal;
+        margin-bottom: 2px;
+    }   
+    .hero .content .btn {
+        font-size: .5rem;
+        font-weight: normal;
+        padding: 2px 4px;
+    }
+    .hero img{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        
+        object-fit: cover;  
+    }
+}

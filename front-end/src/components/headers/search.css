@@ -1,0 +1,32 @@
+
+
+.search_box{
+    position: relative;
+}
+
+.search_suggestions{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+}
+.search_suggestions p{
+    gap:6px;
+    display: flex;
+    align-items: center;
+    padding:  0 8px;
+    cursor: pointer;
+    
+}
+.search_suggestions p img{
+    width: 24px;
+    height: 24px;
+}
+.search_suggestions p:hover{
+    background-color: #ccc;
+}
+.search_suggestions p span{
+    font-weight: bold;
+    font-size: 12px;
+}
